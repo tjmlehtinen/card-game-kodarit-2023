@@ -7,3 +7,14 @@
   box-shadow: 1px 1px 4px 1px rgb(2,150,200);
   overflow: hidden;
 }
+
+.stat-list {
+  margin: 0px;
+  padding: 0px 8px;
+}
+
+.stat-list-item {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}

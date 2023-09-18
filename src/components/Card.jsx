@@ -1,16 +1,13 @@
-export default function Card() {
+export default function Card({ card }) {
     return (
         <div className="card">
-            <img src="http://placekitten.com/120/100" />
-            <ul>
-                <li>
-                    <span>Cuteness:</span>
-                    <span>30</span>
-                </li>
-                <li>
-                    <span>Speed:</span>
-                    <span>20</span>
-                </li>
+            <img src={card.image} />
+            <ul className="stat-list">
+                {card.stats.map(stat =>
+                <li className="stat-list-item">
+                    <span>{stat.name}</span>
+                    <span>{stat.value}</span>
+                </li>)}
             </ul>
         </div>
     );
