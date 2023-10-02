@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
 
@@ -14,8 +15,13 @@ const opponentCard = {
 }
 
 export default function App() {
+  const [result, setResult] = useState("");
   function compareCards() {
-    console.log("nappia painettu")
+    const playerStat = playerCard.stats[0].value;
+    const opponentStat = opponentCard.stats[0].value;
+    if (playerStat < opponentStat) {setResult("Lose")}
+    else if (playerStat === opponentStat) {setResult("Draw")}
+    else {setResult("Win")}
   }
   return (
     <>
@@ -23,6 +29,7 @@ export default function App() {
       <div className="game">
         <Card card={playerCard}/>
         <div>
+          <p>{result || "Press play!"}</p>
           <button type="button" onClick={compareCards}>
             Play
           </button>
