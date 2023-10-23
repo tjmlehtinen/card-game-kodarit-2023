@@ -18,3 +18,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.hand-list {
+  display: flex;
+}
+
+.hand-list-item {
+  list-style: none;
+}

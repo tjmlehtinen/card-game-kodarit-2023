@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./App.css";
-import Card from "./components/Card";
+import Hand from "./components/Hand";
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max + 1 - min) + min);
 
 const getRandomCard = () => {
   return {
+  id: crypto.randomUUID(),
   image: "http://placekitten.com/120/100?image=" + getRandomInt(1, 16),
   stats: [{name: "Cuteness", value: getRandomInt(10, 30)},
           {name: "Stealthmode", value: getRandomInt(10, 50)},
@@ -32,14 +33,14 @@ export default function App() {
     <>
       <h1>Korttipeli</h1>
       <div className="game">
-        {playerCards.map((c) => <Card card={c}/>)}
+        <Hand cards={playerCards}/>
         <div>
           <p>{result || "Press play!"}</p>
           <button type="button" onClick={compareCards}>
             Play
           </button>
         </div>
-        {opponentCards.map((c) => <Card card={c}/>)}
+        <Hand cards={opponentCards}/>
       </div>
     </>
   );
