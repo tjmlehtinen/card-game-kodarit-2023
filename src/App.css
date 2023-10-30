@@ -1,3 +1,13 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game {
+  display: flex;
+}
+
 .card {
   height: 200px;
   width: 120px;
@@ -6,6 +16,10 @@
   border: 4px solid rgb(64,32,32);
   box-shadow: 1px 1px 4px 1px rgb(2,150,200);
   overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
 }
 
 .stat-list {
@@ -23,6 +37,23 @@
   display: flex;
 }
 
+.hand-list.player {
+  flex-direction: row-reverse;
+}
+
+.hand-list.opponent {
+  direction: rtl;
+}
+
 .hand-list-item {
   list-style: none;
+}
+
+.hand-list-item.player {
+  margin-left: calc(2vw - 140px);
+}
+
+.hand-list-item.opponent {
+  margin-right: calc(2vw - 140px);
+  direction: ltr;
 }

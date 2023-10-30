@@ -1,7 +1,7 @@
 export default function Card({ card }) {
     return (
         <div className="card">
-            <img src={card.image} />
+            <img className="card-image" src={card.image} />
             <ul className="stat-list">
                 {card.stats.map((stat, index) =>
                 <li className="stat-list-item" key={index}>

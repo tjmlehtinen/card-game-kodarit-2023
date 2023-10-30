@@ -33,14 +33,14 @@ export default function App() {
     <>
       <h1>Korttipeli</h1>
       <div className="game">
-        <Hand cards={playerCards}/>
+        <Hand cards={playerCards} who="player"/>
         <div>
           <p>{result || "Press play!"}</p>
           <button type="button" onClick={compareCards}>
             Play
           </button>
         </div>
-        <Hand cards={opponentCards}/>
+        <Hand cards={opponentCards} who="opponent"/>
       </div>
     </>
   );
