@@ -6,6 +6,7 @@
 
 .game {
   display: flex;
+  gap: 25px;
 }
 
 .card {
@@ -42,7 +43,7 @@
 }
 
 .hand-list.opponent {
-  direction: rtl;
+  flex-direction: row;
 }
 
 .hand-list-item {
@@ -55,5 +56,4 @@
 
 .hand-list-item.opponent {
   margin-right: calc(2vw - 140px);
-  direction: ltr;
 }
