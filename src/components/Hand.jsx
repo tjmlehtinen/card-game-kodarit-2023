@@ -8,7 +8,7 @@ return (
             key={c.id}
             style={{zIndex: cards.length - index}}
         >
-            <Card card={c}/>
+            <Card card={index === 0 ? c : null}/>
         </li>
         )}
     </ul>

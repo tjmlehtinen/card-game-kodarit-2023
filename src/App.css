@@ -9,6 +9,21 @@
   gap: 25px;
 }
 
+.center-area {
+  text-align: center;
+  align-self: center;
+}
+
+.play-button {
+  border-radius: 50%;
+  background-color: rgb(92, 68, 68);
+  color: rgb(192, 68, 68);
+  border-color: rgb(192, 68, 68);
+  border-style: solid;
+  border-width: 3px;
+  font-size: 2em;
+}
+
 .card {
   height: 200px;
   width: 120px;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Hand from "./components/Hand";
+import PlayButton from "./components/PlayButton";
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max + 1 - min) + min);
 
@@ -34,11 +35,12 @@ export default function App() {
       <h1>Korttipeli</h1>
       <div className="game">
         <Hand cards={playerCards} who="player"/>
-        <div>
+        <div className="center-area">
           <p>{result || "Press play!"}</p>
-          <button type="button" onClick={compareCards}>
-            Play
-          </button>
+          <PlayButton
+            text="Play"
+            handleClick={compareCards}
+          />
         </div>
         <Hand cards={opponentCards} who="opponent"/>
       </div>
