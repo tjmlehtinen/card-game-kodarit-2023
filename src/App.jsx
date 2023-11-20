@@ -23,13 +23,23 @@ const opponentCards = getCards(8);
 
 export default function App() {
   const [result, setResult] = useState("");
+  const [gameState, setGameState] = useState("play");
+
   function compareCards() {
+    setGameState("result");
+
     const playerStat = playerCards[0].stats[0].value;
     const opponentStat = opponentCards[0].stats[0].value;
     if (playerStat < opponentStat) {setResult("Lose")}
     else if (playerStat === opponentStat) {setResult("Draw")}
     else {setResult("Win")}
   }
+
+  function nextRound() {
+    setResult("");
+    setGameState("play");
+  }
+
   return (
     <>
       <h1>Korttipeli</h1>
@@ -37,10 +47,15 @@ export default function App() {
         <Hand cards={playerCards} who="player"/>
         <div className="center-area">
           <p>{result || "Press play!"}</p>
+          {gameState === "play" ?
           <PlayButton
             text="Play"
             handleClick={compareCards}
-          />
+          /> :
+          <PlayButton
+            text="Next"
+            handleClick={nextRound}
+          />}
         </div>
         <Hand cards={opponentCards} who="opponent"/>
       </div>
