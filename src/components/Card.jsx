@@ -10,8 +10,9 @@ export default function Card({ card, handleSelect, selectedStat }) {
             <ul className="stat-list">
                 {card.stats.map((stat, index) =>
                 <li
-                    className="stat-list-item"
+                    className={`stat-list-item${selectedStat === index ? " selected" : ""}`}
                     key={index}
+                    onClick={() => handleSelect && handleSelect(index)}
                 >
                     <span>{stat.name}</span>
                     <span>{stat.value}</span>

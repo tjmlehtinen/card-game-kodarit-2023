@@ -36,8 +36,8 @@ export default function App() {
   function compareCards() {
     setGameState("result");
 
-    const playerStat = cards.player[0].stats[0].value;
-    const opponentStat = cards.opponent[0].stats[0].value;
+    const playerStat = cards.player[0].stats[selectedStat].value;
+    const opponentStat = cards.opponent[0].stats[selectedStat].value;
     if (playerStat < opponentStat) {setResult("Lose")}
     else if (playerStat === opponentStat) {setResult("Draw")}
     else {setResult("Win")}

@@ -56,6 +56,10 @@ body {
   justify-content: space-between;
 }
 
+.stat-list-item.selected {
+  outline: 1px solid black; 
+}
+
 .hand-list {
   display: flex;
   margin: 0px;
