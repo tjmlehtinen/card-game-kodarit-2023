@@ -31,6 +31,7 @@ export default function App() {
   const [result, setResult] = useState("");
   const [gameState, setGameState] = useState("play");
   const [cards, setCards] = useState(dealCards);
+  const [selectedStat, setSelectedStat] = useState(0);
 
   function compareCards() {
     setGameState("result");
@@ -69,7 +70,12 @@ export default function App() {
     <>
       <h1>Korttipeli</h1>
       <div className="game">
-        <Hand cards={cards.player} who="player"/>
+        <Hand
+          cards={cards.player}
+          who="player"
+          selectedStat={selectedStat}
+          setSelectedStat={setSelectedStat}
+        />
         <div className="center-area">
           <p>{result || "Press play!"}</p>
           {gameState === "play" ?

@@ -1,6 +1,6 @@
 import Card from "./Card"
 
-export default function Hand({ cards, who }) {
+export default function Hand({ cards, who, selectedStat, setSelectedStat }) {
 return (
     <ul className={`hand-list ${who}`}>
         {cards.map((c, index) => 
@@ -8,7 +8,11 @@ return (
             key={c.id}
             style={{zIndex: cards.length - index}}
         >
-            <Card card={index === 0 ? c : null}/>
+            <Card
+                card={index === 0 ? c : null}
+                handleSelect={statIndex => setSelectedStat(statIndex)}
+                selectedStat={selectedStat}
+            />
         </li>
         )}
     </ul>
