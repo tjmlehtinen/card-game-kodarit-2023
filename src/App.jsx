@@ -17,9 +17,18 @@ const getRandomCard = () => {
 
 const getCards = (n) => Array(n).fill(null).map((_) => getRandomCard());
 
+function suffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 const deck = getCards(16);
 
 const dealCards = () => {
+  suffle(deck)
   const half = Math.ceil(deck.length / 2)
   return {
     player: deck.slice(0, half),
@@ -32,6 +41,18 @@ export default function App() {
   const [gameState, setGameState] = useState("play");
   const [cards, setCards] = useState(dealCards);
   const [selectedStat, setSelectedStat] = useState(0);
+
+  if (gameState !== "game_over" &&
+        (!cards.player.length || !cards.opponent.length)
+  ) {
+    if (cards.player.length === 0) {
+      setResult("Opponent wins!");
+    }
+    else {
+      setResult("Player wins!");
+    }
+    setGameState("game_over");
+  }
 
   function compareCards() {
     setGameState("result");
@@ -66,6 +87,12 @@ export default function App() {
     setGameState("play");
   }
 
+  function restartGame() {
+    setGameState("play");
+    setResult("");
+    setCards(dealCards);
+  }
+
   return (
     <>
       <h1>Korttipeli</h1>
@@ -82,6 +109,10 @@ export default function App() {
           <PlayButton
             text="Play"
             handleClick={compareCards}
+          /> : gameState === "game_over" ?
+          <PlayButton
+            text="Restart"
+            handleClick={restartGame}
           /> :
           <PlayButton
             text="Next"
